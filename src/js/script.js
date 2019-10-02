@@ -76,9 +76,9 @@
       /*create element isug utils.createElementFrom HTML */
       thisProduct.element = utils.createDOMFromHTML(generatedHTML);
 
-      // find menu container
+      /* find menu container */
       const menuContainer = document.querySelector(select.containerOf.menu);
-      //add element to menu
+      /*add element to menu*/
       menuContainer.appendChild(thisProduct.element);
     }
 
@@ -103,7 +103,7 @@
           /* START: if the active product isn't the element of thisProduct */
           if(activElem != thisProduct.element){
             /* remove class active for the active product */
-            activElem.classList.remove('active');
+            thisProduct.element.classList.remove('active');
             console.log(activElem);
             /* END: if the active product isn't the element of thisProduct */
           }
@@ -116,9 +116,6 @@
 
   const app = {
     initMenu: function(){
-      const testProduct = new Product();
-      console.log('tesProduct:', testProduct);
-
       const thisApp = this;
       console.log('thisApp.data:', thisApp.data);
 
@@ -129,7 +126,6 @@
 
     initData: function(){
       const thisApp = this;
-
       thisApp.data = dataSource;
     },
 
@@ -144,11 +140,7 @@
       thisApp.initData();
       thisApp.initMenu();
     },
-
-
   };
 
-
   app.init();
-
 }
