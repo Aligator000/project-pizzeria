@@ -98,6 +98,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelectorAll(select.menuProduct.imageWrapper);
     }
 
     initAccordion(){
@@ -185,16 +186,26 @@
             price = price - option.price;
             /* END ELSE IF: if option is not selected and option is default */
           }
+          const selectImages = document.querySelectorAll('.' + paramId + '-' + optionId);
+          console.log(selectImages);
+
+          if(optionSelected){
+            for(let sglImage of selectImages){
+              sglImage.classList.add(classNames.menuProduct.imageVisible);
+            }
+          } else {
+            for(let sglImage of selectImages){
+              sglImage.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
           /* END LOOP: for each optionId in param.options */
         }
-        /* END LOOP: for each paramId in thisProduct.data.params */
+      /* END LOOP: for each paramId in thisProduct.data.params */
       }
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = price;
     }
-
   }
-
 
   const app = {
     initMenu: function(){
@@ -221,9 +232,8 @@
 
       thisApp.initData();
       thisApp.initMenu();
-    },
+    }
   };
 
   app.init();
-
 }
