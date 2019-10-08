@@ -70,6 +70,7 @@
       console.log(thisProduct.priceElem);
       thisProduct.initAccordion();
       thisProduct.initOrderForm();
+      thisProduct.initAmountWidget();
       thisProduct.processOrder();
 
       console.log('new Product:', thisProduct);
@@ -79,7 +80,7 @@
       const thisProduct = this;
       //generate HTML based on tamplate
       const generatedHTML = templates.menuProduct(thisProduct.data);
-      console.log(generatedHTML);
+      //console.log(generatedHTML);
 
       /*create element isug utils.createElementFrom HTML */
       thisProduct.element = utils.createDOMFromHTML(generatedHTML);
@@ -99,30 +100,31 @@
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelectorAll(select.menuProduct.imageWrapper);
+      thisProduct.amountWidgetElem = thisProduct.element.querySelectorAll(select.menuProduct.amountWidget);
     }
 
     initAccordion(){
       const thisProduct = this;
       /* find the clickable trigger (the element that should react to clicking) */
       let clickElem = thisProduct.accordionTrigger;
-      console.log(clickElem);
+      //console.log(clickElem);
       /* START: click event listener to trigger */
       clickElem.addEventListener('click', function(){
-        console.log('clicked', clickElem);
+        //console.log('clicked', clickElem);
         /* prevent default action for event */
         event.preventDefault();
         /* toggle active class on element of thisProduct */
         thisProduct.element.classList.toggle('active');
         /* find all active products */
         const arctivElems = document.querySelectorAll('.product.active');
-        console.log(arctivElems);
+        //console.log(arctivElems);
         /* START LOOP: for each active product */
         for (let activElem of arctivElems){
           /* START: if the active product isn't the element of thisProduct */
           if(activElem != thisProduct.element){
             /* remove class active for the active product */
             activElem.classList.remove('active');
-            console.log(activElem);
+            //console.log(activElem);
             /* END: if the active product isn't the element of thisProduct */
           }
           /* END LOOP: for each active product */
@@ -133,7 +135,7 @@
 
     initOrderForm(){
       const thisProduct = this;
-      console.log('initOrderForm');
+      //console.log('initOrderForm');
 
       thisProduct.form.addEventListener('submit', function(event){
         event.preventDefault();
@@ -154,11 +156,11 @@
 
     processOrder(){
       const thisProduct = this;
-      console.log('processOrder');
+      //console.log('processOrder');
 
       /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData', formData);
+      // console.log('formData', formData);
 
       /* set variable price to equal thisProduct.data.price */
       thisProduct.params = {};
@@ -168,7 +170,7 @@
       for(let paramId in thisProduct.data.params){
       /* save the element in thisProduct.data.params with key paramId as const param */
         const param = thisProduct.data.params[paramId];
-        console.log('params:', param);
+        //console.log('params:', param);
         /* START LOOP: for each optionId in param.options */
         for(let optionId in param.options){
         /* save the element in param.options with key optionId as const option */
@@ -187,7 +189,7 @@
             /* END ELSE IF: if option is not selected and option is default */
           }
           const selectImages = document.querySelectorAll('.' + paramId + '-' + optionId);
-          console.log(selectImages);
+          //console.log(selectImages);
 
           if(optionSelected){
             for(let sglImage of selectImages){
@@ -205,6 +207,66 @@
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = price;
     }
+
+    initAmountWidget(){
+      const thisProduct = this;
+
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+    }
+  }
+
+  class AmountWidget {
+    constructor(element){
+      const thisWidget = this;
+      thisWidget.getElements(element);
+      thisWidget.setValue(thisWidget.input.value);
+      console.log('AmountWidget:', thisWidget);
+      console.log('constructor arguments:', element);
+
+    }
+
+    getElements(element){
+      const thisWidget = this;
+
+      thisWidget.element = element;
+      thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+      thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+      thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+
+    }
+
+    setValue(value) {
+      const thisWidget = this;
+
+      const newValue = parseInt(value);
+
+      thisWidget.value = newValue;
+      thisWidget.input.value = thisWidget.value;
+
+
+    }
+
+    initActions(){
+      const thisWidget = this;
+      //console.log('initOrderForm');
+
+      thisWidget.input.addEventListener('change', function(element){
+        thisWidget.setValue(element);
+      });
+
+        thisWidget.linkDecrease.addEventListener('click', function(){
+          event.preventDefault();
+          thisWidget.setValue(thisWidget.value - 1);
+        });
+
+
+        thisWidget.linkIncrease.addEventListener('click', function(){
+          event.preventDefault();
+          thisWidget.setValue(thisWidget.value + 1);
+      });
+    }
+    }
+
   }
 
   const app = {
