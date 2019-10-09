@@ -224,6 +224,7 @@
       const thisWidget = this;
 
       thisWidget.getElements(element);
+      thisWidget.value = settings.amountWidget.defaultValue;
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
       console.log('AmountWidget:', thisWidget);
@@ -242,12 +243,14 @@
 
     setValue(value) {
       const thisWidget = this;
-
       const newValue = parseInt(value);
 
-      thisWidget.value = newValue;
-      thisWidget.announce();
-      thisWidget.input.value = thisWidget.value;
+      if(newValue != thisWidget.value && newValue >= settings.amountWidget.defaultMin
+        && newValue <= settings.amountWidget.defaultMax){
+        thisWidget.value = newValue;
+        thisWidget.announce();
+        thisWidget.input.value = thisWidget.value;
+      }
     }
 
     initActions(){
@@ -272,20 +275,15 @@
 
     announce(){
       const thisWidget = this;
-
       const event = new Event('updated');
       thisWidget.element.dispatchEvent(event);
     }
-
   }
-
-
 
   const app = {
     initMenu: function(){
       const thisApp = this;
       console.log('thisApp.data:', thisApp.data);
-
       for(let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);
       }
@@ -303,7 +301,6 @@
       console.log('classNames:', classNames);
       console.log('settings:', settings);
       console.log('templates:', templates);
-
       thisApp.initData();
       thisApp.initMenu();
     }
