@@ -113,10 +113,10 @@ const app = {
     const thisApp = this;
     const bookingWidget = document.querySelector(select.containerOf.booking);
     thisApp.booking = new Booking(bookingWidget);
-  },
-
+  }
 };
 app.init();
+app.initCart();
 
 
 

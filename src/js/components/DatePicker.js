@@ -18,7 +18,7 @@ export class DatePicker extends BaseWidget{
 
     thisWidget.minDate = new Date(thisWidget.value);
 
-    thisWidget.maxDate = utils.addDays(thisWidget.minDate, thisWidget.minDate, settings.datePicker.maxDaysInFuture);
+    thisWidget.maxDate = utils.addDays(thisWidget.minDate, settings.datePicker.maxDaysInFuture);
 
     //const flatpickr = require('flatpickr');
 
@@ -48,6 +48,7 @@ export class DatePicker extends BaseWidget{
   }
 
   isValid(){
+    event.preventDefault();
     return true;
   }
 

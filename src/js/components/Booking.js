@@ -7,7 +7,6 @@ import {HourPicker} from './HourPicker.js';
 export class Booking {
   constructor(bookingWidget){
     const thisBooking = this;
-
     thisBooking.render(bookingWidget);
     thisBooking.initWidgets();
     thisBooking.getData();
@@ -31,12 +30,10 @@ export class Booking {
 
   initWidgets(){
     const thisBooking = this;
-
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
-
   }
 
   getData(){
@@ -54,6 +51,7 @@ export class Booking {
       eventsCurrent: settings.db.notRepeatParam + '&' + utils.queryParams(startEndDates),
       eventsRepeat: settings.db.repeatParam + '&' + utils.queryParams(endDate),
     };
+
     console.log('getData params', params);
 
     const urls = {
@@ -61,8 +59,8 @@ export class Booking {
       eventsCurrent: settings.db.url + '/' + settings.db.event + '?' + params.eventsCurrent,
       eventsRepeat: settings.db.url + '/' + settings.db.event + '?' + params.eventsRepeat,
     };
-    console.log('getData urls', urls);
 
+    console.log('getData urls', urls);
 
     Promise.all([
       fetch(urls.booking),
@@ -83,16 +81,50 @@ export class Booking {
 
   parseData(bookings, eventsCurrent, eventsRepeat){
     const thisBooking = this;
-    console.log(eventsCurrent);
-    console.log(eventsRepeat);
-    console.log(bookings);
-    thisBooking.booked = {};
 
-    for(let event of eventsCurrent){
-      console.log(event);
-      thisBooking.makeBooked(event.date, event.time, event.duration, event.id);
+    thisBooking.booked = {};
+    console.log(eventsCurrent);
+
+    for(let item of bookings){
+      console.log(item);
+      thisBooking.makeBooked(item.date, item.hour, item.duration, item.tableId);
+    }
+
+    for(let item of eventsCurrent) {
+      console.log(item);
+      thisBooking.makeBooked(item.date, item.hour, item.duration, item.tableId);
+    }
+
+    const minDate = thisBooking.datePicker.minDate;
+    const maxDate = thisBooking.datePicker.maxDate;
+
+    for (let item of eventsRepeat) {
+      if (item.repeat == 'daily') {
+        for (let loopDate = minDate; loopDate <= maxDate; loopDate = utils.addDays(loopDate, 1)) {
+          thisBooking.makeBooked(utils.dateToStr(loopDate), item.hour, item.duration, item.table);
+          console.log(item);
+        }
+      }
     }
   }
+  makeBooked(date, hour, duration, tableId){
+    const thisBooking = this;
+
+    if(typeof thisBooking.booked[date] == 'undefined'){
+      thisBooking.booked[date] = {};
+    }
+
+    const startHour = utils.hourToNumber(hour);
+
+    for(let hours = startHour; hours < startHour + duration; hours += 0.5){
+      if(!thisBooking.booked[date][hours]){
+        thisBooking.booked[date][hours] = [];
+      }
+      thisBooking.booked[date][hours].push(tableId);
+    }
+    //console.log(thisBooking.booked);
+  }
+
 }
 
 
