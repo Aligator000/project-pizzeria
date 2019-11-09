@@ -27,7 +27,7 @@ export class Booking {
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelector(select.booking.tables);
-    const tables = thisBooking.dom.tables;
+    //const tables = thisBooking.dom.tables;
   }
 
   initWidgets(){
@@ -111,7 +111,7 @@ export class Booking {
         }
       }
     }
-    thisBooking.updateDom();
+    thisBooking.updateDOM();
   }
   makeBooked(date, hour, duration, tableId){
     const thisBooking = this;
@@ -131,7 +131,7 @@ export class Booking {
     //console.log(thisBooking.booked);
   }
 
-  updateDom(){
+  updateDOM(){
     const thisBooking = this;
 
     console.log('tekst');
