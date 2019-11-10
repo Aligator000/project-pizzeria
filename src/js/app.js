@@ -116,7 +116,3 @@ const app = {
   }
 };
 app.init();
-app.initCart();
-
-
-
