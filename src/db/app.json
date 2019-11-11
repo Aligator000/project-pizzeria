@@ -206,8 +206,8 @@
   "event": [
     {
       "id": 1,
-      "date": "2019-11-10",
-      "hour": "12:30",
+      "date": "2019-11-19",
+      "hour": "19:00",
       "table": 1,
       "repeat": false,
       "duration": 4,
