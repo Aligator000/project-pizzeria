@@ -137,7 +137,7 @@ export class Booking {
       if (!thisBooking.booked[date][hourBlock]) {
         thisBooking.booked[date][hourBlock] = [];
       }
-      thisBooking.booked[date][hourBlock].push(table);
+      thisBooking.booked[date][hourBlock].push(Number(table));
     }
     // console.log(thisBooking.booked);
   }
@@ -232,8 +232,8 @@ export class Booking {
       .then(function(response){
         return response.json();
       })
-      .then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
+      .then(function(item){
+        thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
       });
   }
 }
