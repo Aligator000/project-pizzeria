@@ -9,3 +9,117 @@
 .main-page{
   padding: 36px 0;
 }
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.mb-3{
+  margin-bottom: 1rem!important;
+}
+
+.col-6{
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 0px;
+  padding-left: 10px;
+}
+
+.col-12, .col-4, .col-9 {
+  padding-right: 0px;
+  padding-left: 10px;
+}
+
+.card-title {
+  font-family: $font-header;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.hours{
+  background-color: $color-main;
+}
+
+.card-body.hours{
+  height: 150px;
+
+  p {
+    font-family: $font-header;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.5em;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.comment{
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+/* heart hover*/
+
+.content-overlay{
+  color: $color-main;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  background: rgba(black, 0.5);
+}
+
+.wrapper-overlay:hover .overlay{
+  opacity: 1;
+  cursor: pointer;
+}
+
+.wrapper-text{
+  position: relative;
+}
+
+.content-text{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  font-size: 1em;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.overlay-text{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: transparent;
+  height: 0;
+  transition: 0.5s ease;
+  overflow: hidden;
+}
+
+.wrapper-text:hover .overlay-text{
+  height: 100%;
+  cursor: pointer;
+}
+
