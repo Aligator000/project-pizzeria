@@ -22,6 +22,7 @@ const app = {
     console.log('settings:', settings);
     console.log('templates:', templates);
     thisApp.initPages();
+    console.log(thisApp.initPages);
     thisApp.initData();
     thisApp.initCart();
     console.log(thisApp.pages);
@@ -68,6 +69,14 @@ const app = {
 
 
     let pagesMatchingHash = [];
+    if (!window.location.hash) {
+      pagesMatchingHash = thisApp.pages.filter(function(page){
+        return page.id == 'main';
+      });
+      thisApp.activatePage(pagesMatchingHash.length ? pagesMatchingHash[0].id : thisApp.pages[0].id);
+    }
+
+    console.log('3', window.location.hash);
     if(window.location.hash.length > 2){
       const idFromHash = window.location.hash.replace('#/', '');
 
@@ -88,6 +97,10 @@ const app = {
         const pageHref = clickedElement.getAttribute('href');
         //console.log('href ',pageHref);
         const pId = pageHref.replace('#', '');
+        console.log('1', window.location.hash);
+        const idFromHash = window.location.hash.replace('#/', '');
+        console.log('2', idFromHash);
+
         console.log('pId', pId);
         //activate page
         thisApp.activatePage(pId);

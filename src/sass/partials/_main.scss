@@ -58,8 +58,12 @@
 }
 
 .comment{
-  margin-top: 70px;
-  margin-bottom: 70px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.photos{
+  margin-top: 50px;
 }
 
 /* heart hover*/
@@ -123,3 +127,9 @@
   cursor: pointer;
 }
 
+/* carousel*/
+.comments{
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+}

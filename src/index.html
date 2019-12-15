@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <header class="header">
     <div class="container">
       <div class="header__wrapper">
@@ -66,113 +66,151 @@
   <div id="pages">
   <section id="main" class="main-page">
     <div class="main-page container">
-        <div class="row">
-          <div class="col-6">
-             <div class="card mb-3 justify-content-center align-items-center wrapper-text">
-                <img src="https://i.postimg.cc/CLPGYvnb/pizza-1.jpg"
-                         alt="Order online photo">
-              <div class="card-body position-absolute">
-                    <h2 class="card-title">order online</h2>
-              </div>
-              <div class="overlay-text">
-                <div class="content-text">
-                    <p>Delicious food delivered to your door</p>
-                </div>
-              </div>
-          </div>
-          </div>
-
-            <div class="col-6">
-              <div class="card mb-3 justify-content-center align-items-center">
-                <img src="https://i.postimg.cc/fRVxbxYp/pizza-2.jpg"
-                     alt="Book a table photo">
-                <div class="card-body position-absolute">
-                  <h2 class="card-title">book a table</h2>
-                  <!--<a href="#" class="btn btn-primary">Get inspired</a>-->
-                </div>
-              </div>
-           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <div class="card mb-3 justify-content-center align-items-center hours">
-              <div class="card-body hours">
-                 <h2 class="card-title">opening hours</h2>
-                 <p>tue-sin, 12pm-12am</p>
+      <div class="row">
+        <div class="col-6">
+          <div class="card mb-3 justify-content-center align-items-center wrapper-text">
+            <img src="https://i.postimg.cc/CLPGYvnb/pizza-1.jpg"
+                 alt="Order online photo">
+            <div class="card-body position-absolute">
+              <h2 class="card-title">order online</h2>
+            </div>
+            <div class="overlay-text">
+              <div class="content-text">
+                <p>Delicious food delivered to your door</p>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="row comment">
-          <div class="col-3">
-            <div class="card mb-3 justify-content-center align-items-center hours">
-              <img src="https://i.postimg.cc/mrMCYBXS/pizza-3.jpg"
-                     alt="Two ladies by a table">
-
+        <div class="col-6">
+          <div class="card mb-3 justify-content-center align-items-center">
+            <img src="https://i.postimg.cc/fRVxbxYp/pizza-2.jpg"
+                 alt="Book a table photo">
+            <div class="card-body position-absolute">
+              <h2 class="card-title">book a table</h2>
             </div>
           </div>
-          <div class="col-9">
-            <div class="card mb-3 justify-content-center align-items-center hours">
-              <div class="card-body">
-                <div class="card-body hours">
-                  <h2 class="card-title">opening hours</h2>
-                  <p>tue-sin, 12pm-12am</p>
-               </div>
-
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-3 justify-content-center align-items-center hours">
+            <div class="card-body hours">
+              <h2 class="card-title">opening hours</h2>
+              <p>tue-sun, 12pm-12am</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row comment">
+        <div class="col-3">
+          <div class="card mb-3 justify-content-center align-items-center hours">
+            <img src="https://i.postimg.cc/mrMCYBXS/pizza-3.jpg"
+                 alt="Two ladies by a table">
+          </div>
+        </div>
+        <div class="col-9">
+          <div class=" mb-3 justify-content-center align-items-center">
+            <div class="container">
+              <div id="main-slider" class="carousel slide" data-ride="carousel" data-interval="3000">
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                    <h3 class="comments">I love your sweets:)</h3>
+                    <p class="pb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                       ullamco laboris.
+                    </p>
+                    <p>-Radjesh</p>
+                  </div>
+                  <div class="carousel-item" role="listbox">
+                    <h3 class="comments">Will definitedly be back.</h3>
+                    <p class="pb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua.
+                   </p>
+                   <p>-Leonard</p>
+                  </div>
+                  <div class="carousel-item" role="listbox">
+                      <h3 class="comments">Great pizza!</h3>
+                      <p class="pb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                         ullamco laboris.
+                      </p>
+                      <p>-Peggy</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-
+        </div>
+      </div>
+        <div class="row photos">
+          <div class="col-4">
+            <div class="card mb-3 justify-content-center align-items-center">
+              <div class="wrapper-overlay">
+                <img src="https://i.postimg.cc/MTmBLt8M/pizza-4.jpg"
+                      alt="waiter">
+                <div class="overlay">
+                  <div class="content-overlay"><i class="fa fa-heart"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card mb-3 justify-content-center align-items-center">
+              <div class="wrapper-overlay">
+                <img src="https://i.postimg.cc/Hxg53RF1/pizza-5.jpg"
+                      alt="plate">
+                <div class="overlay">
+                  <div class="content-overlay"><i class="fa fa-heart"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card mb-3 justify-content-center align-items-center">
+              <div class="wrapper-overlay"></div>
+                <img src="https://i.postimg.cc/prVjM820/pizza-6.jpg"
+                      alt="pizza sliced">
+                <div class="overlay">
+                  <div class="content-overlay"><i class="fa fa-heart"></i></div>
+              </div>
+            </div>
+            </div>
+          </div>
         <div class="row">
           <div class="col-4">
             <div class="card mb-3 justify-content-center align-items-center">
               <div class="wrapper-overlay">
-              <img src="https://i.postimg.cc/MTmBLt8M/pizza-4.jpg"
-                     alt="Two ladies by a table">
-              <div class="overlay">
-                <div class="content-overlay"><i class="fa fa-heart"></i></div>
+                <img src="https://i.postimg.cc/8zxLfjH5/pizza-7.jpg"
+                      alt="open sign">
+                <div class="overlay">
+                  <div class="content-overlay"><i class="fa fa-heart"></i></div>
+                </div>
               </div>
             </div>
           </div>
-          </div>
           <div class="col-4">
             <div class="card mb-3 justify-content-center align-items-center">
-              <img src="https://i.postimg.cc/Hxg53RF1/pizza-5.jpg"
-                     alt="Two ladies by a table">
+              <div class="wrapper-overlay">
+                <img src="https://i.postimg.cc/Y28gfX3T/pizza-8.jpg"
+                      alt="flovour">
+                <div class="overlay">
+                  <div class="content-overlay"><i class="fa fa-heart"></i></div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-4">
             <div class="card mb-3 justify-content-center align-items-center">
-              <img src="https://i.postimg.cc/prVjM820/pizza-6.jpg"
-                     alt="Two ladies by a table">
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4">
-            <div class="card mb-3 justify-content-center align-items-center">
-              <img src="https://i.postimg.cc/8zxLfjH5/pizza-7.jpg"
-                     alt="Two ladies by a table">
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card mb-3 justify-content-center align-items-center">
-              <img src="https://i.postimg.cc/Y28gfX3T/pizza-8.jpg"
-                     alt="Two ladies by a table">
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card mb-3 justify-content-center align-items-center">
-              <img src="https://i.postimg.cc/wMWmqvM9/pizza-9.jpg"
-                     alt="Two ladies by a table">
+              <div class="wrapper-overlay">
+                <img src="https://i.postimg.cc/wMWmqvM9/pizza-9.jpg"
+                      alt="restaurant door">
+                <div class="overlay">
+                  <div class="content-overlay"><i class="fa fa-heart"></i></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="col-12">
             <div class="card-body">
@@ -180,18 +218,15 @@
             </div>
           </div>
         </div>
-
-    </div>
-  </div>
+      </div>
   </section>
 
-
-    <section id="order">
-      <div id="product-list" class="product-list container"></div>
-    </section>
-    <section id="booking">
-      <div class="booking-wrapper container"></div>
-    </section>
+  <section id="order">
+    <div id="product-list" class="product-list container"></div>
+  </section>
+  <section id="booking">
+    <div class="booking-wrapper container"></div>
+  </section>
   </div>
    <script id="template-booking-widget" type="text/x-handlebars-template">
     <div class="booking-widget">
@@ -366,6 +401,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor/range-slider.min.js" type="module"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="js/app.js" type="module"></script>
 </body>
 </html>
